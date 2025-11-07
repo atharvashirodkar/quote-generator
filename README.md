@@ -2,7 +2,8 @@
 
 A sleek and modern web application that displays random inspirational quotes fetched from an external API. Built with vanilla JavaScript, HTML, and CSS, this project demonstrates clean design and asynchronous data fetching.
 
-![Screenshot of Quote Generator](docs/screenshot.png)
+<img width="1919" height="904" alt="image" src="https://github.com/user-attachments/assets/1ff038ef-adac-45ca-8f23-4f35ace48a55" />
+
 
 ## Features
 
