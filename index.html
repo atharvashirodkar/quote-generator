@@ -6,15 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quote of The Day</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
     <div class="quote-box">
-        <h2>Quote of the day</h2>
-        <blockquote id="quote">Loading...</blockquote>
+        <h1 class="heading">Quote of the day</h1>
+        <div class="qContainer">
+            <p id="q1">❝</p>
+            <p id="quote">Loading...</p>
+            <p id="q2">❞</p>
+        </div>
+
         <span id="author">Loading...</span>
-        <div>
-            <button onclick="getQuote(api_url)">New Quote</button>
+        <div class="action-btn">
+            <button class="new-btn" onclick="getQuote(api_url)"><i class="fa-solid fa-quote-left"></i>New Quote</button>
+            <button class="copy-btn" onclick="copyQuote()"><i class="far fa-copy"></i>Copy</button>
         </div>
     </div>
     <script src="script.js"></script>
