@@ -1,183 +1,275 @@
 :root {
-    /* Modernized color palette */
-    --primary-color: #253347;
-    --accent-color: #3a82f7;
-    --text-color: #2b2b2b;
-    --light-text: #7d8a93;
-    --background: linear-gradient(135deg, #6a85f1 0%, #a777e3 100%);
-    --card-bg: rgba(255, 255, 255, 0.92);
-    --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-    --transition: all 0.25s ease;
+  color-scheme: dark;
+
+  --page: #1e1b16;
+  --surface: #1e1b16;
+  --text: #c9c9c9;
+  --muted: #c9c9c9;
+  --line: rgba(201, 201, 201, 0.18);
+  --accent: #e8b23d;
+  --focus: #e8b23d;
+  --shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+
+  /* Semantic aliases for existing styles */
+  --ink: var(--text);
+  --canvas: var(--page);
+  --muted-ink: var(--muted);
+  --border: var(--line);
+  --on-accent: var(--page);
+
+  --space-unit: 4px;
+
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  color: var(--text);
+  background: var(--page);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--canvas);
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--background);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-color);
-    line-height: 1.6;
-    padding: 1rem;
-}
-
-/* === Container === */
-.quote-box {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: clamp(2rem, 5vw, 3rem);
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-}
-
-.quote-box:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
-}
-
-/* === Heading === */
-.heading {
-    color: var(--primary-color);
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    opacity: 0.85;
-    margin-bottom: 1rem;
-}
-
-/* === Quote === */
-#quote {
-    font-size: clamp(1.25rem, 3vw, 1.6rem);
-    font-weight: 400;
-    line-height: 1.7;
-    margin: 1.8rem 0 1.5rem;
-    position: relative;
-    padding: 0 1.5rem;
-    animation: fadeIn 0.4s ease-out;
-}
-
-#quote::before,
-#quote::after {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    color: var(--accent-color);
-    opacity: 0.25;
-    position: absolute;
-    line-height: 1;
-}
-
-.qContainer {
-    display: flex;
-}
-
-#q1,
-#q2 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    color: var(--accent-color);
-    opacity: 0.25;
-    line-height: 1;
-}
-
-#q2 {
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-/* === Author === */
-#author {
-    display: block;
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
-    font-weight: 500;
-    color: var(--accent-color);
-    font-style: italic;
-    margin-bottom: 2rem;
-    animation: fadeIn 0.4s ease-out;
-}
-
-#author::before {
-    content: "– ";
-    color: var(--accent-color);
-    font-size: larger;
-}
-
-/* === Buttons === */
-.action-btn {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background: var(--canvas);
+  line-height: 1.5;
 }
 
 button {
-    background: var(--accent-color);
-    color: #fff;
-    border: none;
-    padding: 0.85rem 2rem;
-    border-radius: 40px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 3px 10px rgba(58, 130, 247, 0.25);
-    min-width: 130px;
-    gap: 0.8rem;
-    display: flex;
-    flex-direction: row;
+  font: inherit;
 }
 
-button:hover {
-    background: #2e6de6;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 15px rgba(58, 130, 247, 0.35);
+.site-shell {
+  width: min(100% - 48px, 1200px);
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-button:active {
-    transform: translateY(0);
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 108px;
+  padding: 20px 0;
 }
 
-.copy-btn:active {
-    background-color: #75aafff0;
+.wordmark {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  line-height: 1;
+  text-align: center;
 }
 
-/* === Loading State === */
-#quote:empty::before,
-#author:empty::before {
-    content: "Loading...";
-    color: var(--light-text);
-    font-style: normal;
+.primary-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 44px;
+  padding: 0 8px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-/* === Fade Animation === */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.nav-item,
+.meta-label {
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
-/* === Responsive === */
+.page-main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.5;
+  align-items: center;
+}
+
+.quote-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.quote-content {
+  position: relative;
+  margin: 0;
+  padding: 0 0 30px;
+  border-bottom: 1px solid var(--border);
+}
+
+.quote-symbol {
+  display: block;
+  height: 76px;
+  color: var(--accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(6rem, 13vw, 9rem);
+  font-weight: 700;
+  line-height: 0.9;
+}
+
+#quote {
+  max-width: 880px;
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+#author {
+  display: block;
+  min-height: 1.5em;
+  margin-top: 28px;
+  color: var(--muted-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.045em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+#author:not(:empty)::before {
+  content: "— ";
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.button {
+  min-height: 46px;
+  padding: 11px 20px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.button-primary {
+  border-color: var(--accent);
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+.button-primary:hover:not(:disabled) {
+  background: var(--accent);
+  filter: brightness(0.92);
+}
+
+.button-secondary {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.button-secondary:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+.status {
+  min-height: 1.5em;
+  margin: 14px 0 0;
+  color: var(--muted-ink);
+  font-size: 0.875rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media (max-width: 600px) {
-    .quote-box {
-        padding: 2rem 1.2rem;
-    }
+  .site-shell {
+    width: min(100% - 32px, 1200px);
+  }
 
-    .action-btn {
-        flex-direction: column;
-        align-items: center;
-    }
+  .masthead {
+    min-height: 88px;
+  }
+
+  .primary-nav {
+    min-height: 42px;
+  }
+
+  .nav-item {
+    font-size: 0.68rem;
+  }
+
+  .page-main {
+    padding: 68px 0 48px;
+  }
+
+  .quote-symbol {
+    height: 64px;
+  }
+
+  #quote {
+    font-size: clamp(1.65rem, 7.5vw, 2.35rem);
+    line-height: 1.2;
+  }
+
+  #author {
+    margin-top: 22px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
 }

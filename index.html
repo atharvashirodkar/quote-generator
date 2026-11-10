@@ -1,30 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quote of The Day</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Generate and copy a random quote with its author attribution.">
+  <meta name="theme-color" content="#1e1b16">
+  <title>Quote Generator</title>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
 </head>
 
 <body>
-    <div class="quote-box">
-        <h1 class="heading">Quote of the day</h1>
-        <div class="qContainer">
-            <p id="q1">❝</p>
-            <p id="quote">Loading...</p>
-            <p id="q2">❞</p>
+  <div class="site-shell">
+
+    <header class="masthead">
+      <h1 class="wordmark">QUOTE GENERATOR</h1>
+    </header>
+
+    <nav class="primary-nav" aria-label="Page category">
+      <span class="nav-item">RANDOM QUOTE</span>
+    </nav>
+
+    <main class="page-main">
+      <section class="quote-section" aria-label="Random quote generator">
+
+        <figure class="quote-content" aria-label="Generated quote">
+          <span class="quote-symbol" aria-hidden="true">“</span>
+
+          <blockquote id="quote" aria-live="polite" aria-busy="true">
+            Loading a quote...
+          </blockquote>
+
+          <figcaption id="author"></figcaption>
+        </figure>
+
+        <div class="actions">
+          <button class="button button-primary" id="new-quote" type="button">
+            New quote
+          </button>
+
+          <button class="button button-secondary" id="copy-quote" type="button" disabled>
+            Copy quote
+          </button>
         </div>
 
-        <span id="author">Loading...</span>
-        <div class="action-btn">
-            <button class="new-btn" onclick="getQuote(api_url)"><i class="fa-solid fa-quote-left"></i>New Quote</button>
-            <button class="copy-btn" onclick="copyQuote()"><i class="far fa-copy"></i>Copy</button>
-        </div>
-    </div>
-    <script src="script.js"></script>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+
+      </section>
+    </main>
+
+  </div>
 </body>
 
 </html>
